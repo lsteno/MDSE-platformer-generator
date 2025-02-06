@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<platformer:Game xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:platformer="http://www.example.org/platformer" currentLevelCounter="5" friction="5" gravity="490" screen="pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))" clock="pygame.time.Clock()">
+  <levels width="2000" height="200">
+    <entities xsi:type="platformer:Player" size="40">
+      <position x="50"/>
+      <sprite path="player.png"/>
+    </entities>
+    <entities xsi:type="platformer:Platform" direction="RIGHT" speed="50" size="20" type="MOVING">
+      <position x="100" y="200"/>
+      <sprite path="platform.png"/>
+    </entities>
+    <entities xsi:type="platformer:Item" direction="RIGHT" size="10" value="100">
+      <position/>
+      <sprite path="item.png"/>
+    </entities>
+    <entities xsi:type="platformer:Enemy" size="30">
+      <position x="60" y="100"/>
+      <sprite path="enemy.png"/>
+    </entities>
+    <background path="level.png"/>
+    <winCoordinate x="1500"/>
+  </levels>
+  <ui livesCount="//@lives" scoreCount="//@score" menu_open="true">
+    <button label="Reset"/>
+    <button label="QUIT" action="EXIT_GAME"/>
+    <button label="Menu" action="OPEN_MENU"/>
+    <button label="Close" action="CLOSE_MENU"/>
+  </ui>
+  <lives amount="10"/>
+  <score amount="100"/>
+</platformer:Game>

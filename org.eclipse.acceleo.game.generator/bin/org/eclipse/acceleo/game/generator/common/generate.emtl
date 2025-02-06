@@ -1,0 +1,3135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generate" nsURI="org::eclipse::acceleo::game::generator::common::generate" startHeaderPosition="29" endHeaderPosition="78">
+    <input>
+      <takesTypesFrom href="http://www.example.org/python#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock">
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="from abc import ABC, abstractmethod&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="imp" referredVariable="/0/generateElement/%/%/imp">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Import/module"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="ABC">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+            </ifExpr>
+            <else>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import "/>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="imp" referredVariable="/0/generateElement/%/%/imp">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Import/module"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLowerCase"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+            </else>
+            <elseIf>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="from enum import Enum&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="imp" referredVariable="/0/generateElement/%/%/imp">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Import/module"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Enum">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </ifExpr>
+            </elseIf>
+          </body>
+          <loopVariable name="imp">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Import)">
+            <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/imports"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/assignmentDefinition">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%/%.2/a">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="a">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Assignment)">
+            <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/assignment"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/expressionStatement">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="expr" referredVariable="/0/generateElement/%/%.4/expr">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="expr">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Expression)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/OrderedSet(Expression)">
+              <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Expression)">
+                <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/expressions"/>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/generateElement/%/%.4/collect/select/e">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/21/FunctionCall">
+                  <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="e">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateElement/%/%.4/collect/temp1">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/21/Expression">
+                <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp1">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/enumDefinition">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="cls" referredVariable="/0/generateElement/%/%.5/cls">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="cls">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/Sequence(Class)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Class)">
+              <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/Sequence(OclAny)">
+                <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/eAllContents">
+                  <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+                  </source>
+                </source>
+                <body xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/generateElement/%/%.5/select/collect/select/e">
+                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:TypeExp" eType="/21/Class">
+                    <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+                </body>
+                <iterator xsi:type="ocl.ecore:Variable" name="e">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </iterator>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateElement/%/%.5/select/collect/temp2">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/21/Class">
+                  <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="temp2">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="c" referredVariable="/0/generateElement/%/%.5/select/c">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Class/isEnum"/>
+              </source>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="true">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="c">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/classDefinition">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="cls" referredVariable="/0/generateElement/%/%.6/cls">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="cls">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/Sequence(Class)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Class)">
+              <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/Sequence(OclAny)">
+                <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/eAllContents">
+                  <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+                  </source>
+                </source>
+                <body xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/generateElement/%/%.6/select/collect/select/e">
+                    <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:TypeExp" eType="/21/Class">
+                    <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+                </body>
+                <iterator xsi:type="ocl.ecore:Variable" name="e">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </iterator>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateElement/%/%.6/select/collect/temp3">
+                  <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/21/Class">
+                  <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="temp3">
+                <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="c" referredVariable="/0/generateElement/%/%.6/select/c">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Class/isEnum"/>
+              </source>
+              <argument xsi:type="ocl.ecore:BooleanLiteralExp" booleanSymbol="false">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean_Class/="/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="c">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="def main():&#xA;    game = Game()&#xA;    game.startGame()&#xA;&#xA;if __name__ == &quot;__main__&quot;:&#xA;    main()&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/precedingSiblings">
+                <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+                </source>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/size"/>
+            </source>
+            <argument xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/ecore_EObject_Class/siblings">
+                <source xsi:type="ocl.ecore:VariableExp" name="script" referredVariable="/0/generateElement/script">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+                </source>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)_Class/size"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/="/>
+          </ifExpr>
+        </body>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="game_skeleton.py">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="script">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="enumDefinition" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="class "/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/enumDefinition/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Class/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(Enum):&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="attr" referredVariable="/0/enumDefinition/%.3/attr">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Attribute/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = "/>
+        <body xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:IteratorExp" name="sortedBy" eType="/8/OrderedSet(Attribute)">
+              <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Attribute)">
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/enumDefinition/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/attribute"/>
+              </source>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/enumDefinition/%.3/%.3/%/sortedBy/temp4">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Attribute/name"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="temp4">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+              </iterator>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="attr" referredVariable="/0/enumDefinition/%.3/attr">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/indexOf"/>
+          </source>
+          <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="1">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/-"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <loopVariable name="attr">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:IteratorExp" name="sortedBy" eType="/8/OrderedSet(Attribute)">
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Attribute)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/enumDefinition/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/attribute"/>
+          </source>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/enumDefinition/%.3/sortedBy/temp5">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Attribute/name"/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="temp5">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+          </iterator>
+        </iterSet>
+      </body>
+      <parameter name="aClass">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="classDefinition" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="class "/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Class/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=":&#xA;"/>
+      <body xsi:type="mtl:IfBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    def __init__("/>
+        <body xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/oclstdlib_Collection(T)_Class/sep">
+          <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(String)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/OrderedSet(Method)">
+              <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Method)">
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/method"/>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/classDefinition/%.3/%.1/collect/select/m">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="__init__">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="m">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(String)">
+              <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/classDefinition/%.3/%.1/collect/temp6">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/parameters"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp6">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+            </iterator>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", ">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="):&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/assignmentDefinition">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="assignment" referredVariable="/0/classDefinition/%.3/%.3/assignment">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="assignment">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Assignment)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Script)">
+              <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/OrderedSet(Method)">
+                <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Method)">
+                  <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/method"/>
+                </source>
+                <body xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/classDefinition/%.3/%.3/collect/collect/select/m">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="__init__">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+                </body>
+                <iterator xsi:type="ocl.ecore:Variable" name="m">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                </iterator>
+              </source>
+              <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Script)">
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/classDefinition/%.3/%.3/collect/collect/temp7">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Method/script"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="temp7">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Assignment)">
+              <source xsi:type="ocl.ecore:VariableExp" name="temp2" referredVariable="/0/classDefinition/%.3/%.3/collect/temp8">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/assignment"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp8">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/expressionStatement">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="expr" referredVariable="/0/classDefinition/%.3/%.4/expr">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="expr">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Expression)">
+            <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Script)">
+              <source xsi:type="ocl.ecore:IteratorExp" name="select" eType="/8/OrderedSet(Method)">
+                <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Method)">
+                  <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/method"/>
+                </source>
+                <body xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/classDefinition/%.3/%.4/collect/collect/select/m">
+                      <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="__init__">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+                </body>
+                <iterator xsi:type="ocl.ecore:Variable" name="m">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                </iterator>
+              </source>
+              <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Script)">
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/classDefinition/%.3/%.4/collect/collect/temp9">
+                  <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Method/script"/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="temp9">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </iterator>
+            </source>
+            <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Expression)">
+              <source xsi:type="ocl.ecore:VariableExp" name="temp2" referredVariable="/0/classDefinition/%.3/%.4/collect/temp10">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/expressions"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp10">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <ifExpr xsi:type="ocl.ecore:IteratorExp" name="exists">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Method)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/method"/>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/classDefinition/%.3/exists/m">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="__init__">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="m">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+          </iterator>
+        </ifExpr>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
+        <body xsi:type="mtl:TemplateInvocation" definition="/0/methodDefinition">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="method" referredVariable="/0/classDefinition/%.5/method">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+          </argument>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <loopVariable name="method">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:IteratorExp" name="reject" eType="/8/OrderedSet(Method)">
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Method)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/classDefinition/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Class/method"/>
+          </source>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="m" referredVariable="/0/classDefinition/%.5/reject/m">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="__init__">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+          </body>
+          <iterator xsi:type="ocl.ecore:Variable" name="m">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+          </iterator>
+        </iterSet>
+      </body>
+      <parameter name="aClass">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="methodDefinition" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="def "/>
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aMethod" referredVariable="/0/methodDefinition/aMethod">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+      <body xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/oclstdlib_Collection(T)_Class/sep">
+        <source xsi:type="ocl.ecore:OperationCallExp" eType="/8/OrderedSet(String)">
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(String)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aMethod" referredVariable="/0/methodDefinition/aMethod">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Method/parameters"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="self">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/prepend"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", ">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="):&#xA;"/>
+      <body xsi:type="mtl:IfBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        # Method body&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/assignmentDefinition">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="assignment" referredVariable="/0/methodDefinition/%.5/%.1/assignment">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="assignment">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Assignment)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Script)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aMethod" referredVariable="/0/methodDefinition/aMethod">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Method/script"/>
+            </source>
+            <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Assignment)">
+              <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/methodDefinition/%.5/%.1/collect/temp11">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/assignment"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp11">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/expressionStatement">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="expr" referredVariable="/0/methodDefinition/%.5/%.2/expr">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="expr">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(Expression)">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Script)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aMethod" referredVariable="/0/methodDefinition/aMethod">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Method/script"/>
+            </source>
+            <body xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Expression)">
+              <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/methodDefinition/%.5/%.2/collect/temp12">
+                <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Script/expressions"/>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp12">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+            </iterator>
+          </iterSet>
+        </body>
+        <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(Script)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aMethod" referredVariable="/0/methodDefinition/aMethod">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Method/script"/>
+          </source>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/notEmpty"/>
+        </ifExpr>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    pass"/>
+      <parameter name="aMethod">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="assignmentDefinition" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Variable"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aAssignment" referredVariable="/0/assignmentDefinition/aAssignment">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Assignment/leftSide"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Variable/name"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = "/>
+      <body xsi:type="mtl:TemplateInvocation" definition="/0/expression.5">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <argument xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aAssignment" referredVariable="/0/assignmentDefinition/aAssignment">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/python#//Assignment/rightSide"/>
+        </argument>
+      </body>
+      <parameter name="aAssignment">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="callDefinition" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aCall" referredVariable="/0/callDefinition/aCall">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//FunctionCall/name"/>
+      </body>
+      <parameter name="aCall">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//Literal/value"/>
+      </body>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression.1/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//VariableReference/name"/>
+      </body>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression.2/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//ClassInstance/className"/>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+      <body xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/oclstdlib_Collection(T)_Class/sep">
+        <source xsi:type="ocl.ecore:PropertyCallExp" eType="/8/OrderedSet(String)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression.2/aExpression">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//ClassInstance/values"/>
+        </source>
+        <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", ">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")"/>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression.3/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//FunctionCall/name"/>
+      </body>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:PropertyCallExp">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <source xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expression.4/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+        </source>
+        <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/python#//ConstantReference/name"/>
+      </body>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expressionStatement" visibility="Public">
+      <body xsi:type="mtl:TemplateInvocation" definition="/0/expression.5">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="aExpression" referredVariable="/0/expressionStatement/aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+        </argument>
+      </body>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="expression" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="# Unsupported expression type"/>
+      <parameter name="aExpression">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="eAllContents">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="siblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="precedingSiblings">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+      </eOperations>
+      <eOperations name="generateElement">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElement"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="script">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="enumDefinition">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/enumDefinition"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="classDefinition">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/classDefinition"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="methodDefinition">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/methodDefinition"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aMethod">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="assignmentDefinition">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/assignmentDefinition"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aAssignment">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="callDefinition">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/callDefinition"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aCall">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression.1"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression.2"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression.3"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression.4"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expressionStatement">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expressionStatement"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="expression">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/expression.5"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aExpression">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+      <eOperations name="sep">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="http://www.eclipse.org/acceleo/mtl/3.0/mtlnonstdlib.ecore#//Sequence(OclAny)"/>
+        <eParameters name="separatorString">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Script_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Script"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Class_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Class"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Method_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Method"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Assignment_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Assignment"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_FunctionCall_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//FunctionCall"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Literal_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Literal"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_VariableReference_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//VariableReference"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_ClassInstance_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//ClassInstance"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_ConstantReference_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//ConstantReference"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="python_Expression_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/python#//Expression"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Import)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Assignment)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Expression)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Expression)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(OclAny)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Class)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Attribute)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Method)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(String)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(String)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Script)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Script)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(Assignment)" instanceClassName="java.util.List">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Import"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="FunctionCall">
+      <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Expression">
+      <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Class">
+      <referredType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Script"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Attribute"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Method"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Assignment"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Literal"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//VariableReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ClassInstance"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//FunctionCall"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//ConstantReference"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/python#//Expression"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateElement">
+      <details key="start" value="82"/>
+      <details key="end" value="1120"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateElement/%">
+      <details key="start" value="151"/>
+      <details key="end" value="1108"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateElement/%/%">
+      <details key="start" value="194"/>
+      <details key="end" value="401"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElement/%/%/%">
+      <details key="start" value="232"/>
+      <details key="end" value="394"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElement/%/%/%/%">
+      <details key="start" value="258"/>
+      <details key="end" value="294"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElement/%/%/%/%.1">
+      <details key="start" value="236"/>
+      <details key="end" value="256"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%/%/%/%.1/%">
+      <details key="start" value="237"/>
+      <details key="end" value="247"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%/%/%/%.1/%/imp">
+      <details key="start" value="237"/>
+      <details key="end" value="240"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%/%/%/%.1/%.1">
+      <details key="start" value="250"/>
+      <details key="end" value="255"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%/%/%/%.2">
+      <details key="start" value="347"/>
+      <details key="end" value="389"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%/%/%/%.2/%">
+      <details key="start" value="354"/>
+      <details key="end" value="361"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%/%/%/%.2/%.1">
+      <details key="start" value="362"/>
+      <details key="end" value="386"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%/%/%/%.2/%.1/%">
+      <details key="start" value="362"/>
+      <details key="end" value="372"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%/%/%/%.2/%.1/%/imp">
+      <details key="start" value="362"/>
+      <details key="end" value="365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%/%/%.2/%.2">
+      <details key="start" value="388"/>
+      <details key="end" value="389"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%/%/%.3">
+      <details key="start" value="294"/>
+      <details key="end" value="347"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%/%/%.3/%">
+      <details key="start" value="325"/>
+      <details key="end" value="347"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%/%/%.3/%.1">
+      <details key="start" value="302"/>
+      <details key="end" value="323"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%/%/%.3/%.1/%">
+      <details key="start" value="303"/>
+      <details key="end" value="313"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%/%/%.3/%.1/%/imp">
+      <details key="start" value="303"/>
+      <details key="end" value="306"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%/%/%.3/%.1/%.1">
+      <details key="start" value="316"/>
+      <details key="end" value="322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%/imp">
+      <details key="start" value="200"/>
+      <details key="end" value="212"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%/%.1">
+      <details key="start" value="215"/>
+      <details key="end" value="229"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%/%.1/script">
+      <details key="start" value="215"/>
+      <details key="end" value="221"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.1">
+      <details key="start" value="402"/>
+      <details key="end" value="403"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.2">
+      <details key="start" value="403"/>
+      <details key="end" value="479"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.2/%">
+      <details key="start" value="447"/>
+      <details key="end" value="470"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.2/%/a">
+      <details key="start" value="468"/>
+      <details key="end" value="469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.2/%.1">
+      <details key="start" value="472"/>
+      <details key="end" value="473"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.2/a">
+      <details key="start" value="409"/>
+      <details key="end" value="423"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.2/%.2">
+      <details key="start" value="426"/>
+      <details key="end" value="443"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.2/%.2/script">
+      <details key="start" value="426"/>
+      <details key="end" value="432"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.3">
+      <details key="start" value="480"/>
+      <details key="end" value="481"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%/%.4">
+      <details key="start" value="481"/>
+      <details key="end" value="626"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%/%.4/%">
+      <details key="start" value="592"/>
+      <details key="end" value="617"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%/%.4/%/expr">
+      <details key="start" value="612"/>
+      <details key="end" value="616"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%/%.4/%.1">
+      <details key="start" value="619"/>
+      <details key="end" value="620"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%/%.4/expr">
+      <details key="start" value="487"/>
+      <details key="end" value="504"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%/%.4/collect">
+      <details key="start" value="507"/>
+      <details key="end" value="588"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%/%.4/collect/select">
+      <details key="start" value="507"/>
+      <details key="end" value="566"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%/%.4/collect/select/%">
+      <details key="start" value="507"/>
+      <details key="end" value="525"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%/%.4/collect/select/%/script">
+      <details key="start" value="507"/>
+      <details key="end" value="513"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%/%.4/collect/select/%.1">
+      <details key="start" value="538"/>
+      <details key="end" value="565"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%/%.4/collect/select/%.1/e">
+      <details key="start" value="538"/>
+      <details key="end" value="539"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%/%.4/collect/select/%.1/%">
+      <details key="start" value="552"/>
+      <details key="end" value="564"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%/%.4/collect/select/e">
+      <details key="start" value="534"/>
+      <details key="end" value="535"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%/%.4/collect/%">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%/%.4/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%/%.4/collect/%/%">
+      <details key="start" value="577"/>
+      <details key="end" value="587"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%/%.4/collect/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%/%.5">
+      <details key="start" value="627"/>
+      <details key="end" value="780"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%/%.5/%">
+      <details key="start" value="752"/>
+      <details key="end" value="771"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%/%.5/%/cls">
+      <details key="start" value="767"/>
+      <details key="end" value="770"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%/%.5/%.1">
+      <details key="start" value="773"/>
+      <details key="end" value="774"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%/%.5/cls">
+      <details key="start" value="633"/>
+      <details key="end" value="644"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%/%.5/select">
+      <details key="start" value="647"/>
+      <details key="end" value="748"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%/%.5/select/collect">
+      <details key="start" value="647"/>
+      <details key="end" value="719"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%/%.5/select/collect/select">
+      <details key="start" value="647"/>
+      <details key="end" value="702"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%/%.5/select/collect/select/%">
+      <details key="start" value="647"/>
+      <details key="end" value="668"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%/%.5/select/collect/select/%/script">
+      <details key="start" value="647"/>
+      <details key="end" value="653"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%/%.5/select/collect/select/%.1">
+      <details key="start" value="681"/>
+      <details key="end" value="701"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%/%.5/select/collect/select/%.1/e">
+      <details key="start" value="681"/>
+      <details key="end" value="682"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%/%.5/select/collect/select/%.1/%">
+      <details key="start" value="695"/>
+      <details key="end" value="700"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%/%.5/select/collect/select/e">
+      <details key="start" value="677"/>
+      <details key="end" value="678"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%/%.5/select/collect/%">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%/%.5/select/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%/%.5/select/collect/%/%">
+      <details key="start" value="713"/>
+      <details key="end" value="718"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%/%.5/select/collect/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%/%.5/select/%">
+      <details key="start" value="732"/>
+      <details key="end" value="747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%/%.5/select/%/%">
+      <details key="start" value="732"/>
+      <details key="end" value="740"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%/%.5/select/%/%/c">
+      <details key="start" value="732"/>
+      <details key="end" value="733"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%/%.5/select/%/%.1">
+      <details key="start" value="743"/>
+      <details key="end" value="747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%/%.5/select/c">
+      <details key="start" value="728"/>
+      <details key="end" value="729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%/%.6">
+      <details key="start" value="781"/>
+      <details key="end" value="936"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%/%.6/%">
+      <details key="start" value="907"/>
+      <details key="end" value="927"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%/%.6/%/cls">
+      <details key="start" value="923"/>
+      <details key="end" value="926"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%/%.6/%.1">
+      <details key="start" value="929"/>
+      <details key="end" value="930"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%/%.6/cls">
+      <details key="start" value="787"/>
+      <details key="end" value="798"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%/%.6/select">
+      <details key="start" value="801"/>
+      <details key="end" value="903"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%/%.6/select/collect">
+      <details key="start" value="801"/>
+      <details key="end" value="873"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%/%.6/select/collect/select">
+      <details key="start" value="801"/>
+      <details key="end" value="856"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%/%.6/select/collect/select/%">
+      <details key="start" value="801"/>
+      <details key="end" value="822"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%/%.6/select/collect/select/%/script">
+      <details key="start" value="801"/>
+      <details key="end" value="807"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%/%.6/select/collect/select/%.1">
+      <details key="start" value="835"/>
+      <details key="end" value="855"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.6/select/collect/select/%.1/e">
+      <details key="start" value="835"/>
+      <details key="end" value="836"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.6/select/collect/select/%.1/%">
+      <details key="start" value="849"/>
+      <details key="end" value="854"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.6/select/collect/select/e">
+      <details key="start" value="831"/>
+      <details key="end" value="832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElement/%/%.6/select/collect/%">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/%/%.6/select/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateElement/%/%.6/select/collect/%/%">
+      <details key="start" value="867"/>
+      <details key="end" value="872"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateElement/%/%.6/select/collect/temp3">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElement/%/%.6/select/%">
+      <details key="start" value="886"/>
+      <details key="end" value="902"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateElement/%/%.6/select/%/%">
+      <details key="start" value="886"/>
+      <details key="end" value="894"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateElement/%/%.6/select/%/%/c">
+      <details key="start" value="886"/>
+      <details key="end" value="887"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateElement/%/%.6/select/%/%.1">
+      <details key="start" value="897"/>
+      <details key="end" value="902"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateElement/%/%.6/select/c">
+      <details key="start" value="882"/>
+      <details key="end" value="883"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateElement/%/%.7">
+      <details key="start" value="937"/>
+      <details key="end" value="1100"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateElement/%/%.7/%">
+      <details key="start" value="1005"/>
+      <details key="end" value="1095"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateElement/%/%.7/%.1">
+      <details key="start" value="941"/>
+      <details key="end" value="1003"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateElement/%/%.7/%.1/%">
+      <details key="start" value="941"/>
+      <details key="end" value="975"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateElement/%/%.7/%.1/%/%">
+      <details key="start" value="941"/>
+      <details key="end" value="967"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateElement/%/%.7/%.1/%/%/script">
+      <details key="start" value="941"/>
+      <details key="end" value="947"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateElement/%/%.7/%.1/%.1">
+      <details key="start" value="978"/>
+      <details key="end" value="1003"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateElement/%/%.7/%.1/%.1/%">
+      <details key="start" value="978"/>
+      <details key="end" value="995"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateElement/%/%.7/%.1/%.1/%/script">
+      <details key="start" value="978"/>
+      <details key="end" value="984"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateElement/%/%.8">
+      <details key="start" value="158"/>
+      <details key="end" value="176"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateElement/%/%.9">
+      <details key="start" value="184"/>
+      <details key="end" value="191"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateElement/script">
+      <details key="start" value="115"/>
+      <details key="end" value="130"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/enumDefinition">
+      <details key="start" value="1122"/>
+      <details key="end" value="1363"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/enumDefinition/%">
+      <details key="start" value="1171"/>
+      <details key="end" value="1177"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/enumDefinition/%.1">
+      <details key="start" value="1178"/>
+      <details key="end" value="1189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/enumDefinition/%.1/aClass">
+      <details key="start" value="1178"/>
+      <details key="end" value="1184"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/enumDefinition/%.2">
+      <details key="start" value="1191"/>
+      <details key="end" value="1199"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/enumDefinition/%.3">
+      <details key="start" value="1203"/>
+      <details key="end" value="1351"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/enumDefinition/%.3/%">
+      <details key="start" value="1263"/>
+      <details key="end" value="1271"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/enumDefinition/%.3/%.1">
+      <details key="start" value="1272"/>
+      <details key="end" value="1281"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/enumDefinition/%.3/%.1/attr">
+      <details key="start" value="1272"/>
+      <details key="end" value="1276"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/enumDefinition/%.3/%.2">
+      <details key="start" value="1283"/>
+      <details key="end" value="1286"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/enumDefinition/%.3/%.3">
+      <details key="start" value="1287"/>
+      <details key="end" value="1338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/enumDefinition/%.3/%.3/%">
+      <details key="start" value="1287"/>
+      <details key="end" value="1334"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/enumDefinition/%.3/%.3/%/sortedBy">
+      <details key="start" value="1287"/>
+      <details key="end" value="1319"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/enumDefinition/%.3/%.3/%/sortedBy/%">
+      <details key="start" value="1287"/>
+      <details key="end" value="1303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/enumDefinition/%.3/%.3/%/sortedBy/%/aClass">
+      <details key="start" value="1287"/>
+      <details key="end" value="1293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/enumDefinition/%.3/%.3/%/sortedBy/%.1">
+      <details key="start" value="1314"/>
+      <details key="end" value="1318"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/enumDefinition/%.3/%.3/%/sortedBy/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/enumDefinition/%.3/%.3/%/sortedBy/temp4">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/enumDefinition/%.3/%.3/%/attr">
+      <details key="start" value="1329"/>
+      <details key="end" value="1333"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/enumDefinition/%.3/%.3/%.1">
+      <details key="start" value="1337"/>
+      <details key="end" value="1338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/enumDefinition/%.3/%.4">
+      <details key="start" value="1340"/>
+      <details key="end" value="1341"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/enumDefinition/%.3/attr">
+      <details key="start" value="1209"/>
+      <details key="end" value="1225"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/enumDefinition/%.3/sortedBy">
+      <details key="start" value="1228"/>
+      <details key="end" value="1260"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/enumDefinition/%.3/sortedBy/%">
+      <details key="start" value="1228"/>
+      <details key="end" value="1244"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/enumDefinition/%.3/sortedBy/%/aClass">
+      <details key="start" value="1228"/>
+      <details key="end" value="1234"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/enumDefinition/%.3/sortedBy/%.1">
+      <details key="start" value="1255"/>
+      <details key="end" value="1259"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/enumDefinition/%.3/sortedBy/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/enumDefinition/%.3/sortedBy/temp5">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/enumDefinition/aClass">
+      <details key="start" value="1154"/>
+      <details key="end" value="1168"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/classDefinition">
+      <details key="start" value="1365"/>
+      <details key="end" value="2049"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/classDefinition/%">
+      <details key="start" value="1415"/>
+      <details key="end" value="1421"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/classDefinition/%.1">
+      <details key="start" value="1422"/>
+      <details key="end" value="1433"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/classDefinition/%.1/aClass">
+      <details key="start" value="1422"/>
+      <details key="end" value="1428"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/classDefinition/%.2">
+      <details key="start" value="1435"/>
+      <details key="end" value="1437"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/classDefinition/%.3">
+      <details key="start" value="1441"/>
+      <details key="end" value="1916"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/classDefinition/%.3/%">
+      <details key="start" value="1495"/>
+      <details key="end" value="1512"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/classDefinition/%.3/%.1">
+      <details key="start" value="1513"/>
+      <details key="end" value="1581"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/classDefinition/%.3/%.1/collect">
+      <details key="start" value="1513"/>
+      <details key="end" value="1570"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/classDefinition/%.3/%.1/collect/select">
+      <details key="start" value="1513"/>
+      <details key="end" value="1559"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/classDefinition/%.3/%.1/collect/select/%">
+      <details key="start" value="1513"/>
+      <details key="end" value="1526"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/classDefinition/%.3/%.1/collect/select/%/aClass">
+      <details key="start" value="1513"/>
+      <details key="end" value="1519"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/classDefinition/%.3/%.1/collect/select/%.1">
+      <details key="start" value="1539"/>
+      <details key="end" value="1558"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/classDefinition/%.3/%.1/collect/select/%.1/%">
+      <details key="start" value="1539"/>
+      <details key="end" value="1545"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/classDefinition/%.3/%.1/collect/select/%.1/%/m">
+      <details key="start" value="1539"/>
+      <details key="end" value="1540"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/classDefinition/%.3/%.1/collect/select/%.1/%.1">
+      <details key="start" value="1548"/>
+      <details key="end" value="1558"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/classDefinition/%.3/%.1/collect/select/m">
+      <details key="start" value="1535"/>
+      <details key="end" value="1536"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/classDefinition/%.3/%.1/collect/%">
+      <details key="start" value="1560"/>
+      <details key="end" value="1570"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/classDefinition/%.3/%.1/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/classDefinition/%.3/%.1/collect/temp6">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/classDefinition/%.3/%.1/%">
+      <details key="start" value="1576"/>
+      <details key="end" value="1580"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/classDefinition/%.3/%.2">
+      <details key="start" value="1584"/>
+      <details key="end" value="1587"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/classDefinition/%.3/%.3">
+      <details key="start" value="1595"/>
+      <details key="end" value="1752"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/classDefinition/%.3/%.3/%">
+      <details key="start" value="1694"/>
+      <details key="end" value="1702"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/classDefinition/%.3/%.3/%.1">
+      <details key="start" value="1703"/>
+      <details key="end" value="1735"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/classDefinition/%.3/%.3/%.1/assignment">
+      <details key="start" value="1724"/>
+      <details key="end" value="1734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/classDefinition/%.3/%.3/%.2">
+      <details key="start" value="1737"/>
+      <details key="end" value="1738"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/classDefinition/%.3/%.3/assignment">
+      <details key="start" value="1601"/>
+      <details key="end" value="1624"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/classDefinition/%.3/%.3/collect">
+      <details key="start" value="1627"/>
+      <details key="end" value="1691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/classDefinition/%.3/%.3/collect/collect">
+      <details key="start" value="1627"/>
+      <details key="end" value="1680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/classDefinition/%.3/%.3/collect/collect/select">
+      <details key="start" value="1627"/>
+      <details key="end" value="1673"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/classDefinition/%.3/%.3/collect/collect/select/%">
+      <details key="start" value="1627"/>
+      <details key="end" value="1640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/classDefinition/%.3/%.3/collect/collect/select/%/aClass">
+      <details key="start" value="1627"/>
+      <details key="end" value="1633"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/classDefinition/%.3/%.3/collect/collect/select/%.1">
+      <details key="start" value="1653"/>
+      <details key="end" value="1672"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/classDefinition/%.3/%.3/collect/collect/select/%.1/%">
+      <details key="start" value="1653"/>
+      <details key="end" value="1659"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/classDefinition/%.3/%.3/collect/collect/select/%.1/%/m">
+      <details key="start" value="1653"/>
+      <details key="end" value="1654"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/classDefinition/%.3/%.3/collect/collect/select/%.1/%.1">
+      <details key="start" value="1662"/>
+      <details key="end" value="1672"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/classDefinition/%.3/%.3/collect/collect/select/m">
+      <details key="start" value="1649"/>
+      <details key="end" value="1650"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/classDefinition/%.3/%.3/collect/collect/%">
+      <details key="start" value="1674"/>
+      <details key="end" value="1680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/classDefinition/%.3/%.3/collect/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/classDefinition/%.3/%.3/collect/collect/temp7">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/classDefinition/%.3/%.3/collect/%">
+      <details key="start" value="1681"/>
+      <details key="end" value="1691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/classDefinition/%.3/%.3/collect/%/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/classDefinition/%.3/%.3/collect/temp8">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/classDefinition/%.3/%.4">
+      <details key="start" value="1761"/>
+      <details key="end" value="1906"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/classDefinition/%.3/%.4/%">
+      <details key="start" value="1855"/>
+      <details key="end" value="1863"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/classDefinition/%.3/%.4/%.1">
+      <details key="start" value="1864"/>
+      <details key="end" value="1889"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/classDefinition/%.3/%.4/%.1/expr">
+      <details key="start" value="1884"/>
+      <details key="end" value="1888"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/classDefinition/%.3/%.4/%.2">
+      <details key="start" value="1891"/>
+      <details key="end" value="1892"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/classDefinition/%.3/%.4/expr">
+      <details key="start" value="1767"/>
+      <details key="end" value="1784"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/classDefinition/%.3/%.4/collect">
+      <details key="start" value="1787"/>
+      <details key="end" value="1852"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/classDefinition/%.3/%.4/collect/collect">
+      <details key="start" value="1787"/>
+      <details key="end" value="1840"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/classDefinition/%.3/%.4/collect/collect/select">
+      <details key="start" value="1787"/>
+      <details key="end" value="1833"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/classDefinition/%.3/%.4/collect/collect/select/%">
+      <details key="start" value="1787"/>
+      <details key="end" value="1800"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/classDefinition/%.3/%.4/collect/collect/select/%/aClass">
+      <details key="start" value="1787"/>
+      <details key="end" value="1793"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/classDefinition/%.3/%.4/collect/collect/select/%.1">
+      <details key="start" value="1813"/>
+      <details key="end" value="1832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/classDefinition/%.3/%.4/collect/collect/select/%.1/%">
+      <details key="start" value="1813"/>
+      <details key="end" value="1819"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/classDefinition/%.3/%.4/collect/collect/select/%.1/%/m">
+      <details key="start" value="1813"/>
+      <details key="end" value="1814"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/classDefinition/%.3/%.4/collect/collect/select/%.1/%.1">
+      <details key="start" value="1822"/>
+      <details key="end" value="1832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/classDefinition/%.3/%.4/collect/collect/select/m">
+      <details key="start" value="1809"/>
+      <details key="end" value="1810"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/classDefinition/%.3/%.4/collect/collect/%">
+      <details key="start" value="1834"/>
+      <details key="end" value="1840"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/classDefinition/%.3/%.4/collect/collect/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/classDefinition/%.3/%.4/collect/collect/temp9">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/classDefinition/%.3/%.4/collect/%">
+      <details key="start" value="1841"/>
+      <details key="end" value="1852"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/classDefinition/%.3/%.4/collect/%/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/classDefinition/%.3/%.4/collect/temp10">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/classDefinition/%.3/exists">
+      <details key="start" value="1445"/>
+      <details key="end" value="1493"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/classDefinition/%.3/exists/%">
+      <details key="start" value="1446"/>
+      <details key="end" value="1459"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/classDefinition/%.3/exists/%/aClass">
+      <details key="start" value="1446"/>
+      <details key="end" value="1452"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/classDefinition/%.3/exists/%.1">
+      <details key="start" value="1472"/>
+      <details key="end" value="1491"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/classDefinition/%.3/exists/%.1/%">
+      <details key="start" value="1472"/>
+      <details key="end" value="1478"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/classDefinition/%.3/exists/%.1/%/m">
+      <details key="start" value="1472"/>
+      <details key="end" value="1473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/classDefinition/%.3/exists/%.1/%.1">
+      <details key="start" value="1481"/>
+      <details key="end" value="1491"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/classDefinition/%.3/exists/m">
+      <details key="start" value="1468"/>
+      <details key="end" value="1469"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/classDefinition/%.4">
+      <details key="start" value="1917"/>
+      <details key="end" value="1918"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.212" references="/0/classDefinition/%.5">
+      <details key="start" value="1922"/>
+      <details key="end" value="2037"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.213" references="/0/classDefinition/%.5/%">
+      <details key="start" value="1995"/>
+      <details key="end" value="1999"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.214" references="/0/classDefinition/%.5/%.1">
+      <details key="start" value="2000"/>
+      <details key="end" value="2024"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.215" references="/0/classDefinition/%.5/%.1/method">
+      <details key="start" value="2017"/>
+      <details key="end" value="2023"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.216" references="/0/classDefinition/%.5/%.2">
+      <details key="start" value="2026"/>
+      <details key="end" value="2027"/>
+      <details key="line" value="62"/>
+    </eAnnotations>
+    <eAnnotations source="positions.217" references="/0/classDefinition/%.5/method">
+      <details key="start" value="1928"/>
+      <details key="end" value="1943"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.218" references="/0/classDefinition/%.5/reject">
+      <details key="start" value="1946"/>
+      <details key="end" value="1992"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.219" references="/0/classDefinition/%.5/reject/%">
+      <details key="start" value="1946"/>
+      <details key="end" value="1959"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.220" references="/0/classDefinition/%.5/reject/%/aClass">
+      <details key="start" value="1946"/>
+      <details key="end" value="1952"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.221" references="/0/classDefinition/%.5/reject/%.1">
+      <details key="start" value="1972"/>
+      <details key="end" value="1991"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.222" references="/0/classDefinition/%.5/reject/%.1/%">
+      <details key="start" value="1972"/>
+      <details key="end" value="1978"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.223" references="/0/classDefinition/%.5/reject/%.1/%/m">
+      <details key="start" value="1972"/>
+      <details key="end" value="1973"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.224" references="/0/classDefinition/%.5/reject/%.1/%.1">
+      <details key="start" value="1981"/>
+      <details key="end" value="1991"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.225" references="/0/classDefinition/%.5/reject/m">
+      <details key="start" value="1968"/>
+      <details key="end" value="1969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.226" references="/0/classDefinition/aClass">
+      <details key="start" value="1398"/>
+      <details key="end" value="1412"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.227" references="/0/methodDefinition">
+      <details key="start" value="2051"/>
+      <details key="end" value="2509"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.228" references="/0/methodDefinition/%">
+      <details key="start" value="2104"/>
+      <details key="end" value="2108"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.229" references="/0/methodDefinition/%.1">
+      <details key="start" value="2109"/>
+      <details key="end" value="2121"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.230" references="/0/methodDefinition/%.1/aMethod">
+      <details key="start" value="2109"/>
+      <details key="end" value="2116"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.231" references="/0/methodDefinition/%.2">
+      <details key="start" value="2123"/>
+      <details key="end" value="2124"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.232" references="/0/methodDefinition/%.3">
+      <details key="start" value="2125"/>
+      <details key="end" value="2171"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.233" references="/0/methodDefinition/%.3/%">
+      <details key="start" value="2125"/>
+      <details key="end" value="2160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.234" references="/0/methodDefinition/%.3/%/%">
+      <details key="start" value="2125"/>
+      <details key="end" value="2143"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.235" references="/0/methodDefinition/%.3/%/%/aMethod">
+      <details key="start" value="2125"/>
+      <details key="end" value="2132"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.236" references="/0/methodDefinition/%.3/%/%.1">
+      <details key="start" value="2153"/>
+      <details key="end" value="2159"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.237" references="/0/methodDefinition/%.3/%.1">
+      <details key="start" value="2166"/>
+      <details key="end" value="2170"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.238" references="/0/methodDefinition/%.4">
+      <details key="start" value="2174"/>
+      <details key="end" value="2177"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.239" references="/0/methodDefinition/%.5">
+      <details key="start" value="2181"/>
+      <details key="end" value="2488"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.240" references="/0/methodDefinition/%.5/%">
+      <details key="start" value="2215"/>
+      <details key="end" value="2237"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.241" references="/0/methodDefinition/%.5/%.1">
+      <details key="start" value="2245"/>
+      <details key="end" value="2363"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.242" references="/0/methodDefinition/%.5/%.1/%">
+      <details key="start" value="2305"/>
+      <details key="end" value="2313"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.243" references="/0/methodDefinition/%.5/%.1/%.1">
+      <details key="start" value="2314"/>
+      <details key="end" value="2346"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.244" references="/0/methodDefinition/%.5/%.1/%.1/assignment">
+      <details key="start" value="2335"/>
+      <details key="end" value="2345"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.245" references="/0/methodDefinition/%.5/%.1/%.2">
+      <details key="start" value="2348"/>
+      <details key="end" value="2349"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.246" references="/0/methodDefinition/%.5/%.1/assignment">
+      <details key="start" value="2251"/>
+      <details key="end" value="2274"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.247" references="/0/methodDefinition/%.5/%.1/collect">
+      <details key="start" value="2277"/>
+      <details key="end" value="2302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.248" references="/0/methodDefinition/%.5/%.1/collect/%">
+      <details key="start" value="2277"/>
+      <details key="end" value="2291"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.249" references="/0/methodDefinition/%.5/%.1/collect/%/aMethod">
+      <details key="start" value="2277"/>
+      <details key="end" value="2284"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.250" references="/0/methodDefinition/%.5/%.1/collect/%.1">
+      <details key="start" value="2292"/>
+      <details key="end" value="2302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.251" references="/0/methodDefinition/%.5/%.1/collect/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.252" references="/0/methodDefinition/%.5/%.1/collect/temp11">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.253" references="/0/methodDefinition/%.5/%.2">
+      <details key="start" value="2372"/>
+      <details key="end" value="2478"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.254" references="/0/methodDefinition/%.5/%.2/%">
+      <details key="start" value="2427"/>
+      <details key="end" value="2435"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.255" references="/0/methodDefinition/%.5/%.2/%.1">
+      <details key="start" value="2436"/>
+      <details key="end" value="2461"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.256" references="/0/methodDefinition/%.5/%.2/%.1/expr">
+      <details key="start" value="2456"/>
+      <details key="end" value="2460"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.257" references="/0/methodDefinition/%.5/%.2/%.2">
+      <details key="start" value="2463"/>
+      <details key="end" value="2464"/>
+      <details key="line" value="74"/>
+    </eAnnotations>
+    <eAnnotations source="positions.258" references="/0/methodDefinition/%.5/%.2/expr">
+      <details key="start" value="2378"/>
+      <details key="end" value="2395"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.259" references="/0/methodDefinition/%.5/%.2/collect">
+      <details key="start" value="2398"/>
+      <details key="end" value="2424"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.260" references="/0/methodDefinition/%.5/%.2/collect/%">
+      <details key="start" value="2398"/>
+      <details key="end" value="2412"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.261" references="/0/methodDefinition/%.5/%.2/collect/%/aMethod">
+      <details key="start" value="2398"/>
+      <details key="end" value="2405"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.262" references="/0/methodDefinition/%.5/%.2/collect/%.1">
+      <details key="start" value="2413"/>
+      <details key="end" value="2424"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.263" references="/0/methodDefinition/%.5/%.2/collect/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.264" references="/0/methodDefinition/%.5/%.2/collect/temp12">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.265" references="/0/methodDefinition/%.5/%.3">
+      <details key="start" value="2185"/>
+      <details key="end" value="2213"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.266" references="/0/methodDefinition/%.5/%.3/%">
+      <details key="start" value="2186"/>
+      <details key="end" value="2200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.267" references="/0/methodDefinition/%.5/%.3/%/aMethod">
+      <details key="start" value="2186"/>
+      <details key="end" value="2193"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.268" references="/0/methodDefinition/%.6">
+      <details key="start" value="2489"/>
+      <details key="end" value="2497"/>
+      <details key="line" value="76"/>
+    </eAnnotations>
+    <eAnnotations source="positions.269" references="/0/methodDefinition/aMethod">
+      <details key="start" value="2085"/>
+      <details key="end" value="2101"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.270" references="/0/assignmentDefinition">
+      <details key="start" value="2511"/>
+      <details key="end" value="2655"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.271" references="/0/assignmentDefinition/%">
+      <details key="start" value="2577"/>
+      <details key="end" value="2602"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.272" references="/0/assignmentDefinition/%/%">
+      <details key="start" value="2577"/>
+      <details key="end" value="2597"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.273" references="/0/assignmentDefinition/%/%/aAssignment">
+      <details key="start" value="2577"/>
+      <details key="end" value="2588"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.274" references="/0/assignmentDefinition/%.1">
+      <details key="start" value="2604"/>
+      <details key="end" value="2607"/>
+      <details key="line" value="80"/>
+    </eAnnotations>
+    <eAnnotations source="positions.275" references="/0/assignmentDefinition/%.2">
+      <details key="start" value="2608"/>
+      <details key="end" value="2641"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.276" references="/0/assignmentDefinition/%.2/%">
+      <details key="start" value="2619"/>
+      <details key="end" value="2640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.277" references="/0/assignmentDefinition/%.2/%/aAssignment">
+      <details key="start" value="2619"/>
+      <details key="end" value="2630"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.278" references="/0/assignmentDefinition/aAssignment">
+      <details key="start" value="2549"/>
+      <details key="end" value="2573"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.279" references="/0/callDefinition">
+      <details key="start" value="2657"/>
+      <details key="end" value="2737"/>
+      <details key="line" value="83"/>
+    </eAnnotations>
+    <eAnnotations source="positions.280" references="/0/callDefinition/%">
+      <details key="start" value="2713"/>
+      <details key="end" value="2723"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.281" references="/0/callDefinition/%/aCall">
+      <details key="start" value="2713"/>
+      <details key="end" value="2718"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.282" references="/0/callDefinition/aCall">
+      <details key="start" value="2689"/>
+      <details key="end" value="2709"/>
+      <details key="line" value="83"/>
+    </eAnnotations>
+    <eAnnotations source="positions.283" references="/0/expression">
+      <details key="start" value="2739"/>
+      <details key="end" value="2823"/>
+      <details key="line" value="87"/>
+    </eAnnotations>
+    <eAnnotations source="positions.284" references="/0/expression/%">
+      <details key="start" value="2792"/>
+      <details key="end" value="2809"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.285" references="/0/expression/%/aExpression">
+      <details key="start" value="2792"/>
+      <details key="end" value="2803"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.286" references="/0/expression/aExpression">
+      <details key="start" value="2767"/>
+      <details key="end" value="2788"/>
+      <details key="line" value="87"/>
+    </eAnnotations>
+    <eAnnotations source="positions.287" references="/0/expression.1">
+      <details key="start" value="2825"/>
+      <details key="end" value="2918"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.288" references="/0/expression.1/%">
+      <details key="start" value="2888"/>
+      <details key="end" value="2904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.289" references="/0/expression.1/%/aExpression">
+      <details key="start" value="2888"/>
+      <details key="end" value="2899"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.290" references="/0/expression.1/aExpression">
+      <details key="start" value="2853"/>
+      <details key="end" value="2884"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.291" references="/0/expression.2">
+      <details key="start" value="2920"/>
+      <details key="end" value="3049"/>
+      <details key="line" value="95"/>
+    </eAnnotations>
+    <eAnnotations source="positions.292" references="/0/expression.2/%">
+      <details key="start" value="2979"/>
+      <details key="end" value="3000"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.293" references="/0/expression.2/%/aExpression">
+      <details key="start" value="2979"/>
+      <details key="end" value="2990"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.294" references="/0/expression.2/%.1">
+      <details key="start" value="3002"/>
+      <details key="end" value="3003"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.295" references="/0/expression.2/%.2">
+      <details key="start" value="3004"/>
+      <details key="end" value="3033"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.296" references="/0/expression.2/%.2/%">
+      <details key="start" value="3004"/>
+      <details key="end" value="3022"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.297" references="/0/expression.2/%.2/%/aExpression">
+      <details key="start" value="3004"/>
+      <details key="end" value="3015"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.298" references="/0/expression.2/%.2/%.1">
+      <details key="start" value="3028"/>
+      <details key="end" value="3032"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.299" references="/0/expression.2/%.3">
+      <details key="start" value="3036"/>
+      <details key="end" value="3037"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.300" references="/0/expression.2/aExpression">
+      <details key="start" value="2948"/>
+      <details key="end" value="2975"/>
+      <details key="line" value="95"/>
+    </eAnnotations>
+    <eAnnotations source="positions.301" references="/0/expression.3">
+      <details key="start" value="3051"/>
+      <details key="end" value="3139"/>
+      <details key="line" value="99"/>
+    </eAnnotations>
+    <eAnnotations source="positions.302" references="/0/expression.3/%">
+      <details key="start" value="3109"/>
+      <details key="end" value="3125"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.303" references="/0/expression.3/%/aExpression">
+      <details key="start" value="3109"/>
+      <details key="end" value="3120"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.304" references="/0/expression.3/aExpression">
+      <details key="start" value="3079"/>
+      <details key="end" value="3105"/>
+      <details key="line" value="99"/>
+    </eAnnotations>
+    <eAnnotations source="positions.305" references="/0/expression.4">
+      <details key="start" value="3141"/>
+      <details key="end" value="3234"/>
+      <details key="line" value="103"/>
+    </eAnnotations>
+    <eAnnotations source="positions.306" references="/0/expression.4/%">
+      <details key="start" value="3204"/>
+      <details key="end" value="3220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.307" references="/0/expression.4/%/aExpression">
+      <details key="start" value="3204"/>
+      <details key="end" value="3215"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.308" references="/0/expression.4/aExpression">
+      <details key="start" value="3169"/>
+      <details key="end" value="3200"/>
+      <details key="line" value="103"/>
+    </eAnnotations>
+    <eAnnotations source="positions.309" references="/0/expressionStatement">
+      <details key="start" value="3236"/>
+      <details key="end" value="3338"/>
+      <details key="line" value="107"/>
+    </eAnnotations>
+    <eAnnotations source="positions.310" references="/0/expressionStatement/%">
+      <details key="start" value="3301"/>
+      <details key="end" value="3324"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.311" references="/0/expressionStatement/%/aExpression">
+      <details key="start" value="3312"/>
+      <details key="end" value="3323"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.312" references="/0/expressionStatement/aExpression">
+      <details key="start" value="3273"/>
+      <details key="end" value="3297"/>
+      <details key="line" value="107"/>
+    </eAnnotations>
+    <eAnnotations source="positions.313" references="/0/expression.5">
+      <details key="start" value="3340"/>
+      <details key="end" value="3436"/>
+      <details key="line" value="111"/>
+    </eAnnotations>
+    <eAnnotations source="positions.314" references="/0/expression.5/%">
+      <details key="start" value="3395"/>
+      <details key="end" value="3424"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.315" references="/0/expression.5/aExpression">
+      <details key="start" value="3368"/>
+      <details key="end" value="3392"/>
+      <details key="line" value="111"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

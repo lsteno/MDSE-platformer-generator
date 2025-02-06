@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Platformer/src-gen" creationIcons="false" editDirectory="/Platformer.edit/src-gen"
+    editorDirectory="/Platformer.editor/src-gen" modelPluginID="Platformer" modelName="Platformer"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>platformer.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Platformer" disposableProviderFactory="true" ecorePackage="platformer.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//Status/INCOMPLETE"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//Status/COMPLETE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//ItemType">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ItemType/SCORE"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ItemType/ABILITY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//PlatformType">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//PlatformType/STILL"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//PlatformType/MOVING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//EnemyType">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//EnemyType/PASSIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//EnemyType/ACTIVE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//ButtonType">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ButtonType/RESET_GAME"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ButtonType/EXIT_GAME"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ButtonType/OPEN_MENU"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//ButtonType/CLOSE_MENU"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platformer.ecore#//Direction">
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//Direction/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="platformer.ecore#//Direction/RIGHT"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="platformer.ecore#//Pygame"/>
+    <genClasses ecoreClass="platformer.ecore#//Game">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/currentLevelCounter"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Game/levels"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Game/ui"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/friction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/gravity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platformer.ecore#//Game/lives"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/screen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/clock"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Game/running"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platformer.ecore#//Game/score"/>
+      <genOperations ecoreOperation="platformer.ecore#//Game/startGame"/>
+      <genOperations ecoreOperation="platformer.ecore#//Game/resetGame"/>
+      <genOperations ecoreOperation="platformer.ecore#//Game/endGame"/>
+      <genOperations ecoreOperation="platformer.ecore#//Game/loadLevel"/>
+      <genOperations ecoreOperation="platformer.ecore#//Game/update"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Level">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Level/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Level/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Level/status"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Level/entities"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Level/background"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Level/winCoordinate"/>
+      <genOperations ecoreOperation="platformer.ecore#//Level/update"/>
+      <genOperations ecoreOperation="platformer.ecore#//Level/draw"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//UI">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//UI/button"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//UI/livesCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//UI/scoreCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//UI/menu_open"/>
+      <genOperations ecoreOperation="platformer.ecore#//UI/draw"/>
+      <genOperations ecoreOperation="platformer.ecore#//UI/handle_click"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Button/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Button/action"/>
+      <genOperations ecoreOperation="platformer.ecore#//Button/performAction"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Entity/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Entity/speed"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Entity/position"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference platformer.ecore#//Entity/sprite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Entity/size"/>
+      <genOperations ecoreOperation="platformer.ecore#//Entity/updatePosition"/>
+      <genOperations ecoreOperation="platformer.ecore#//Entity/draw"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Player">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Player/powered_up"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Player/powered_time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Player/jump_speed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Player/on_ground"/>
+      <genOperations ecoreOperation="platformer.ecore#//Player/jump"/>
+      <genOperations ecoreOperation="platformer.ecore#//Player/performAction"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Enemy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Enemy/type"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Platform">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Platform/type"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Item/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Item/value"/>
+      <genOperations ecoreOperation="platformer.ecore#//Item/applyEffect"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Image/path"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Array2D">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Array2D/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Array2D/y"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Lives">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Lives/amount"/>
+    </genClasses>
+    <genClasses ecoreClass="platformer.ecore#//Score">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platformer.ecore#//Score/amount"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

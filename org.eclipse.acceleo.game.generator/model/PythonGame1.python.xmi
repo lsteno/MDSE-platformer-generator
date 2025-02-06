@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:python="http://www.example.org/python">
+  <python:Script>
+    <class name="Direction" isEnum="true">
+      <attribute name="LEFT"/>
+      <attribute name="RIGHT"/>
+    </class>
+    <class name="Status" isEnum="true">
+      <attribute name="INCOMPLETE"/>
+      <attribute name="COMPLETE"/>
+    </class>
+    <class name="ButtonType" isEnum="true">
+      <attribute name="RESET_GAME"/>
+      <attribute name="EXIT_GAME"/>
+      <attribute name="OPEN_MENU"/>
+      <attribute name="CLOSE_MENU"/>
+    </class>
+    <class name="Platform" isEnum="true">
+      <attribute name="STILL"/>
+      <attribute name="MOVING"/>
+    </class>
+    <class name="Item" isEnum="true">
+      <attribute name="SCORE"/>
+      <attribute name="ABILITY"/>
+    </class>
+    <class name="Enemy" isEnum="true">
+      <attribute name="PASSIVE"/>
+      <attribute name="ACTIVE"/>
+    </class>
+    <assignment>
+      <leftSide name="SCREEN_WIDTH"/>
+      <rightSide xsi:type="python:ConstantReference" name="800"/>
+    </assignment>
+    <assignment>
+      <leftSide name="SCREEN_HEIGHT"/>
+      <rightSide xsi:type="python:ConstantReference" name="600"/>
+    </assignment>
+    <assignment>
+      <leftSide name="FPS"/>
+      <rightSide xsi:type="python:ConstantReference" name="60"/>
+    </assignment>
+    <assignment>
+      <leftSide name="height"/>
+      <rightSide xsi:type="python:ConstantReference" name="600"/>
+    </assignment>
+    <assignment>
+      <leftSide name="width"/>
+      <rightSide xsi:type="python:ConstantReference" name="1600"/>
+    </assignment>
+    <assignment>
+      <leftSide name="screen"/>
+      <rightSide xsi:type="python:FunctionCall" name="pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))"/>
+    </assignment>
+    <assignment>
+      <leftSide name="clock"/>
+      <rightSide xsi:type="python:FunctionCall" name="pygame.time.Clock()"/>
+    </assignment>
+    <assignment>
+      <leftSide name="score"/>
+      <rightSide xsi:type="python:ClassInstance" className="Score">
+        <values>0</values>
+      </rightSide>
+    </assignment>
+    <assignment>
+      <leftSide name="lives"/>
+      <rightSide xsi:type="python:ClassInstance" className="Lives">
+        <values>3</values>
+      </rightSide>
+    </assignment>
+    <assignment>
+      <leftSide name="friction"/>
+      <rightSide xsi:type="python:ConstantReference" name="10"/>
+    </assignment>
+    <assignment>
+      <leftSide name="gravity"/>
+      <rightSide xsi:type="python:ConstantReference" name="980"/>
+    </assignment>
+    <imports module="pygame" alias="null"/>
+    <imports module="random" alias="null"/>
+    <imports module="ABC" alias="null"/>
+    <imports module="Enum" alias="null"/>
+    <expressions xsi:type="python:FunctionCall" name="pygame.init()"/>
+  </python:Script>
+  <python:Script>
+    <class name="Game">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>currentLevelCounter</parameters>
+        <parameters>friction</parameters>
+        <parameters>gravity</parameters>
+        <parameters>screen</parameters>
+        <parameters>clock</parameters>
+        <parameters>running</parameters>
+        <parameters>levels</parameters>
+        <parameters>ui</parameters>
+        <parameters>lives</parameters>
+        <parameters>score</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.currentLevelCounter"/>
+            <rightSide xsi:type="python:VariableReference" name="currentLevelCounter"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.friction"/>
+            <rightSide xsi:type="python:VariableReference" name="friction"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.gravity"/>
+            <rightSide xsi:type="python:VariableReference" name="gravity"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.screen"/>
+            <rightSide xsi:type="python:VariableReference" name="screen"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.clock"/>
+            <rightSide xsi:type="python:VariableReference" name="clock"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.running"/>
+            <rightSide xsi:type="python:VariableReference" name="running"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.levels"/>
+            <rightSide xsi:type="python:VariableReference" name="levels"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.ui"/>
+            <rightSide xsi:type="python:VariableReference" name="ui"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.lives"/>
+            <rightSide xsi:type="python:VariableReference" name="lives"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.score"/>
+            <rightSide xsi:type="python:VariableReference" name="score"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="startGame">
+        <parameters>self</parameters>
+      </method>
+      <method name="resetGame">
+        <parameters>self</parameters>
+      </method>
+      <method name="endGame">
+        <parameters>self</parameters>
+      </method>
+      <method name="loadLevel">
+        <parameters>self</parameters>
+      </method>
+      <method name="update">
+        <parameters>self</parameters>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Level">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>width</parameters>
+        <parameters>height</parameters>
+        <parameters>status</parameters>
+        <parameters>entities</parameters>
+        <parameters>background</parameters>
+        <parameters>winCoordinate</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.width"/>
+            <rightSide xsi:type="python:VariableReference" name="width"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.height"/>
+            <rightSide xsi:type="python:VariableReference" name="height"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.status"/>
+            <rightSide xsi:type="python:VariableReference" name="status"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.entities"/>
+            <rightSide xsi:type="python:VariableReference" name="entities"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.background"/>
+            <rightSide xsi:type="python:VariableReference" name="background"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.winCoordinate"/>
+            <rightSide xsi:type="python:VariableReference" name="winCoordinate"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="update">
+        <parameters>self</parameters>
+      </method>
+      <method name="draw">
+        <parameters>self</parameters>
+      </method>
+    </class>
+    <assignment>
+      <leftSide name="width"/>
+      <rightSide xsi:type="python:ConstantReference" name="2000"/>
+    </assignment>
+    <assignment>
+      <leftSide name="height"/>
+      <rightSide xsi:type="python:ConstantReference" name="200"/>
+    </assignment>
+    <assignment>
+      <leftSide name="status"/>
+      <rightSide xsi:type="python:ConstantReference" name="INCOMPLETE"/>
+    </assignment>
+  </python:Script>
+  <python:Script>
+    <class name="Player">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>direction</parameters>
+        <parameters>speed</parameters>
+        <parameters>size</parameters>
+        <parameters>powered_up</parameters>
+        <parameters>powered_time</parameters>
+        <parameters>jump_speed</parameters>
+        <parameters>on_ground</parameters>
+        <parameters>position</parameters>
+        <parameters>sprite</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.direction"/>
+            <rightSide xsi:type="python:VariableReference" name="direction"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.speed"/>
+            <rightSide xsi:type="python:VariableReference" name="speed"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.size"/>
+            <rightSide xsi:type="python:VariableReference" name="size"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.powered_up"/>
+            <rightSide xsi:type="python:VariableReference" name="powered_up"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.powered_time"/>
+            <rightSide xsi:type="python:VariableReference" name="powered_time"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.jump_speed"/>
+            <rightSide xsi:type="python:VariableReference" name="jump_speed"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.on_ground"/>
+            <rightSide xsi:type="python:VariableReference" name="on_ground"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.position"/>
+            <rightSide xsi:type="python:VariableReference" name="position"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.sprite"/>
+            <rightSide xsi:type="python:VariableReference" name="sprite"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="updatePosition">
+        <parameters>self</parameters>
+      </method>
+      <method name="draw">
+        <parameters>self</parameters>
+      </method>
+      <method name="jump">
+        <parameters>self</parameters>
+      </method>
+      <method name="performAction">
+        <parameters>self</parameters>
+      </method>
+    </class>
+    <assignment>
+      <leftSide name="powered_up"/>
+      <rightSide xsi:type="python:ConstantReference" name="false"/>
+    </assignment>
+    <assignment>
+      <leftSide name="powered_time"/>
+      <rightSide xsi:type="python:ConstantReference" name="0"/>
+    </assignment>
+    <assignment>
+      <leftSide name="jump_speed"/>
+      <rightSide xsi:type="python:ConstantReference" name="0"/>
+    </assignment>
+    <assignment>
+      <leftSide name="on_ground"/>
+      <rightSide xsi:type="python:ConstantReference" name="false"/>
+    </assignment>
+  </python:Script>
+  <python:Script>
+    <class name="Array2D">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>x</parameters>
+        <parameters>y</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.x"/>
+            <rightSide xsi:type="python:VariableReference" name="x"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.y"/>
+            <rightSide xsi:type="python:VariableReference" name="y"/>
+          </assignment>
+        </script>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Image">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>path</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.path"/>
+            <rightSide xsi:type="python:VariableReference" name="path"/>
+          </assignment>
+        </script>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Platform">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>direction</parameters>
+        <parameters>speed</parameters>
+        <parameters>size</parameters>
+        <parameters>type</parameters>
+        <parameters>position</parameters>
+        <parameters>sprite</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.direction"/>
+            <rightSide xsi:type="python:VariableReference" name="direction"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.speed"/>
+            <rightSide xsi:type="python:VariableReference" name="speed"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.size"/>
+            <rightSide xsi:type="python:VariableReference" name="size"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.type"/>
+            <rightSide xsi:type="python:VariableReference" name="type"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.position"/>
+            <rightSide xsi:type="python:VariableReference" name="position"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.sprite"/>
+            <rightSide xsi:type="python:VariableReference" name="sprite"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="updatePosition">
+        <parameters>self</parameters>
+      </method>
+      <method name="draw">
+        <parameters>self</parameters>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Item">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>direction</parameters>
+        <parameters>speed</parameters>
+        <parameters>size</parameters>
+        <parameters>type</parameters>
+        <parameters>value</parameters>
+        <parameters>position</parameters>
+        <parameters>sprite</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.direction"/>
+            <rightSide xsi:type="python:VariableReference" name="direction"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.speed"/>
+            <rightSide xsi:type="python:VariableReference" name="speed"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.size"/>
+            <rightSide xsi:type="python:VariableReference" name="size"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.type"/>
+            <rightSide xsi:type="python:VariableReference" name="type"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.value"/>
+            <rightSide xsi:type="python:VariableReference" name="value"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.position"/>
+            <rightSide xsi:type="python:VariableReference" name="position"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.sprite"/>
+            <rightSide xsi:type="python:VariableReference" name="sprite"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="updatePosition">
+        <parameters>self</parameters>
+      </method>
+      <method name="draw">
+        <parameters>self</parameters>
+      </method>
+      <method name="applyEffect">
+        <parameters>self</parameters>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="UI">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>menu_open</parameters>
+        <parameters>button</parameters>
+        <parameters>livesCount</parameters>
+        <parameters>scoreCount</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.menu_open"/>
+            <rightSide xsi:type="python:VariableReference" name="menu_open"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.button"/>
+            <rightSide xsi:type="python:VariableReference" name="button"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.livesCount"/>
+            <rightSide xsi:type="python:VariableReference" name="livesCount"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.scoreCount"/>
+            <rightSide xsi:type="python:VariableReference" name="scoreCount"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="draw">
+        <parameters>self</parameters>
+      </method>
+      <method name="handle_click">
+        <parameters>self</parameters>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Button">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>label</parameters>
+        <parameters>action</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.label"/>
+            <rightSide xsi:type="python:VariableReference" name="label"/>
+          </assignment>
+          <assignment>
+            <leftSide name="self.action"/>
+            <rightSide xsi:type="python:VariableReference" name="action"/>
+          </assignment>
+        </script>
+      </method>
+      <method name="performAction">
+        <parameters>self</parameters>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Lives">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>amount</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.amount"/>
+            <rightSide xsi:type="python:VariableReference" name="amount"/>
+          </assignment>
+        </script>
+      </method>
+    </class>
+  </python:Script>
+  <python:Script>
+    <class name="Score">
+      <method name="__init__">
+        <parameters>self</parameters>
+        <parameters>amount</parameters>
+        <script>
+          <assignment>
+            <leftSide name="self.amount"/>
+            <rightSide xsi:type="python:VariableReference" name="amount"/>
+          </assignment>
+        </script>
+      </method>
+    </class>
+  </python:Script>
+</xmi:XMI>

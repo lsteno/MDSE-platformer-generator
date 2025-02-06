@@ -1,0 +1,113 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/python')/]
+
+[template public generateElement(script : Script)]
+[comment @main /]
+[file ('game_skeleton.py', true, 'UTF-8')]
+[for (imp : Import | script.imports)]
+[if (imp.module = 'ABC')]
+from abc import ABC, abstractmethod
+[elseif (imp.module = 'Enum')]
+from enum import Enum
+[else]
+import [imp.module.toLowerCase()/]
+[/if]
+[/for]
+
+[for (a : Assignment | script.assignment)]
+[assignmentDefinition(a)/]
+[/for]
+
+[for (expr : Expression | script.expressions->select(e | e.oclIsTypeOf(FunctionCall)).oclAsType(Expression))]
+[expressionStatement(expr)/]
+[/for]
+[for (cls : Class | script.eAllContents()->select(e | e.oclIsTypeOf(Class)).oclAsType(Class)->select(c | c.isEnum = true))]
+[enumDefinition(cls)/]
+[/for]
+[for (cls : Class | script.eAllContents()->select(e | e.oclIsTypeOf(Class)).oclAsType(Class)->select(c | c.isEnum = false))]
+[classDefinition(cls)/]
+[/for]
+[if script.precedingSiblings()->size() = script.siblings()->size()]
+def main():
+    game = Game()
+    game.startGame()
+
+if __name__ == "__main__":
+    main()
+[/if]
+[/file]
+[/template]
+
+[template public enumDefinition(aClass : Class)]
+class [aClass.name/](Enum):
+    [for (attr : Attribute | aClass.attribute->sortedBy(name))]
+        [attr.name/] = [aClass.attribute->sortedBy(name)->indexOf(attr) - 1/]
+    [/for]
+[/template]
+
+[template public classDefinition(aClass : Class)]
+class [aClass.name/]:
+    [if (aClass.method->exists(m | m.name = '__init__'))]
+    def __init__([aClass.method->select(m | m.name = '__init__').parameters->sep(', ')/ ]):
+        [for (assignment : Assignment | aClass.method->select(m | m.name = '__init__').script.assignment)]
+        [assignmentDefinition(assignment)/]
+        [/for]
+        [for (expr : Expression | aClass.method->select(m | m.name = '__init__').script.expressions)]
+        [expressionStatement(expr)/]
+        [/for]
+    [/if]
+
+    [for (method : Method | aClass.method->reject(m | m.name = '__init__'))]
+    [methodDefinition(method)/]
+    [/for]
+[/template]
+
+[template public methodDefinition(aMethod : Method)]
+def [aMethod.name/]([aMethod.parameters->prepend('self')->sep(', ')/ ]):
+    [if (aMethod.script->notEmpty())]
+        # Method body
+        [for (assignment : Assignment | aMethod.script.assignment)]
+        [assignmentDefinition(assignment)/]
+        [/for]
+        [for (expr : Expression | aMethod.script.expressions)]
+        [expressionStatement(expr)/]
+        [/for]
+    [/if]
+    pass
+[/template]
+
+[template public assignmentDefinition(aAssignment : Assignment)]
+[aAssignment.leftSide.name/] = [expression(aAssignment.rightSide)/]
+[/template]
+
+[template public callDefinition(aCall : FunctionCall)]
+[aCall.name/]
+[/template]
+
+[template public expression(aExpression : Literal)]
+[aExpression.value/]
+[/template]
+
+[template public expression(aExpression : VariableReference)]
+[aExpression.name/]
+[/template]
+
+[template public expression(aExpression : ClassInstance)]
+[aExpression.className/]([aExpression.values->sep(', ')/ ])
+[/template]
+
+[template public expression(aExpression : FunctionCall)]
+[aExpression.name/]
+[/template]
+
+[template public expression(aExpression : ConstantReference)]
+[aExpression.name/]
+[/template]
+
+[template public expressionStatement(aExpression : Expression)]
+[expression(aExpression)/]
+[/template]
+
+[template public expression(aExpression : Expression)]
+# Unsupported expression type
+[/template]

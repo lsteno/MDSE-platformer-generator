@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/Python/src-gen" creationIcons="false" editDirectory="/Python.edit/src-gen"
+    editorDirectory="/Python.editor/src-gen" modelPluginID="Python" modelName="Python"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>python.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Python" disposableProviderFactory="true" ecorePackage="python.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="python.ecore#//ConditionType">
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/NOT_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/MORE_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/LESS_THAN"/>
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/MORE_THAN_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="python.ecore#//ConditionType/LESS_THAN_EUQUAL"/>
+    </genEnums>
+    <genClasses ecoreClass="python.ecore#//Script">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/class"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/assignment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/conditionalstatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/primitives"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/whileloop"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Script/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Class/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Class/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Class/method"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference python.ecore#//Class/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Class/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Class/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Class/isEnum"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Method">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Method/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Method/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Method/script"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Method/return"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Method/isAbstract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference python.ecore#//Method/extends"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Attribute/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference python.ecore#//Attribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Function/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Function/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Function/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Function/return"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//WhileLoop">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//WhileLoop/booleanexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//WhileLoop/script"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Assignment/leftSide"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Assignment/rightSide"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="python.ecore#//Expression"/>
+    <genClasses ecoreClass="python.ecore#//ClassInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//ClassInstance/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//ClassInstance/values"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//FunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//FunctionCall/name"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//ConstantReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//ConstantReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//ClassReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//ClassReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Literal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Tuple">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Tuple/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Comparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Comparison/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Comparison/Left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Comparison/Right"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="python.ecore#//BooleanExpression"/>
+    <genClasses ecoreClass="python.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Boolean/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Boolean/value"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Not/booleanexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//ConditionalStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ConditionalStatement/ifblock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ConditionalStatement/elseifblock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ConditionalStatement/elseblock"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//IfBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//IfBlock/script"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//IfBlock/booleanexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//ElseIfBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ElseIfBlock/script"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ElseIfBlock/booleanexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//ElseBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//ElseBlock/script"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Primitives">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Primitives/value"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Python">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference python.ecore#//Python/script"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Python/version"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Import/module"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//Import/alias"/>
+    </genClasses>
+    <genClasses ecoreClass="python.ecore#//VariableReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute python.ecore#//VariableReference/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

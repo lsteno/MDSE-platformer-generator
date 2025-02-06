@@ -1,0 +1,306 @@
+module Game2Python;
+create OUT : python from IN : platformer;
+
+-- Helpers for Enums
+helper def: directionEnum : Sequence(String) = Sequence{ 'LEFT', 'RIGHT' };
+helper def: statusEnum : Sequence(String) = Sequence{ 'INCOMPLETE', 'COMPLETE' };
+helper def: buttonTypeEnum : Sequence(String) = Sequence{ 'RESET_GAME', 'EXIT_GAME', 'OPEN_MENU', 'CLOSE_MENU' };
+helper def: platformTypeEnum : Sequence(String) = Sequence{ 'STILL', 'MOVING' };
+helper def: itemTypeEnum : Sequence(String) = Sequence{ 'SCORE', 'ABILITY' };
+helper def: enemyTypeEnum : Sequence(String) = Sequence{ 'PASSIVE', 'ACTIVE' };
+
+helper def: standardParams : String = 'self';
+
+helper def: isFirstInstanceOfClass(e : platformer!EObject) : Boolean =
+    platformer!EObject.allInstances()
+        ->select(e2 | e2.eClass().name = e.eClass().name)
+        ->indexOf(e) = 1;
+
+helper def: notGame(e : platformer!EObject) : Boolean =
+    e.eClass().name <> 'Game';
+
+helper def: notPlayer(e : platformer!EObject) : Boolean =
+    e.eClass().name <> 'Player';
+
+helper def: notLevel(e : platformer!EObject) : Boolean =
+    e.eClass().name <> 'Level';
+
+lazy rule Var {
+    from v : String
+    to var: python!Variable (
+        name <- v
+    )
+}
+
+lazy rule SelfVar {
+    from v : String
+    to var: python!Variable (
+        name <- 'self.' + v
+    )
+}
+
+lazy rule createImport {
+    from
+        moduleName : String,
+        alias : String
+    to
+        importStmt : python!Import (
+            module <- moduleName,
+            alias <- alias
+        )
+}
+
+lazy rule createConstantReference {
+    from
+        value : String
+    to
+        constRef : python!ConstantReference (
+            name <- value
+        )
+}
+
+lazy rule createFunctionCall {
+    from
+        functionName : String
+    to
+        funcCall : python!FunctionCall (
+            name <- functionName
+        )
+}
+
+lazy rule createClassInstantiation {
+    from
+        className : String,
+        arguments : Sequence(String)
+    to
+        classInstantiation : python!ClassInstance (
+            className <- className,
+            values <- arguments
+        )
+}
+
+lazy rule Ref {
+  from r : String
+  to ref: python!VariableReference (
+    name <- r
+  )
+}
+
+lazy rule createAssignment {
+    from
+        lhs : String,
+        rhs : python!Expression
+    to
+        assign : python!Assignment (
+            leftSide <- thisModule.Var(lhs),
+            rightSide <- rhs
+        )
+}
+
+lazy rule createParameterAssignment {
+  from
+    a : String
+  to
+    assign : python!Assignment (
+      leftSide <- thisModule.SelfVar(a),
+      rightSide <- thisModule.Ref(a)
+    )
+}
+
+lazy rule createMethod {
+    from
+        f : String
+    to
+        method : python!Method (
+            name <- f,
+            parameters <- Sequence{ thisModule.standardParams }
+        )
+}
+
+lazy rule TransformClass {
+    from
+        c : platformer!Class 
+    to
+        classScript : python!Script (
+			class <- thisModule.createClass(c)
+        )
+}
+
+unique lazy rule createClass {
+  from
+    c : platformer!EObject
+  using {
+    className : String = c.eClass().name;
+    isAbstract : Boolean = c.eClass().abstract;
+    attrs : Sequence(String) = c.eClass().eAllAttributes->collect(p | p.name);
+    funcs : Sequence(String) = c.eClass().eAllOperations->collect(o | o.name);
+    refs : Sequence(String) = c.eClass().eAllReferences->collect(r | r.name);
+    methods : Sequence(python!Method) = funcs->collect(f | thisModule.createMethod(f));
+    initAssignments : Sequence(python!Assignment) = 
+    attrs->collect(attr | thisModule.createParameterAssignment(attr))
+    	->union(refs->collect(ref | thisModule.createParameterAssignment(ref)));
+  }
+  to
+    pythonClass : python!Class (
+      name <- className,
+      method <- Sequence{ initMethod }->union(methods),
+      isAbstract <- isAbstract
+    ),
+    initMethod : python!Method (
+      name <- '__init__',
+      parameters <- Sequence{ thisModule.standardParams }->append(attrs)->append(refs),
+      script <- initScript
+    ),
+    initScript : python!Script (
+      assignment <- initAssignments
+    )
+}
+
+unique lazy rule createEnum {
+    from
+        enumName : String,
+        literals : Sequence(String)
+    to
+        pythonEnum : python!Class (
+            name <- enumName,
+            isEnum <- true,
+            attribute <- literals->collect(l | thisModule.createEnumLiteral(l))
+        )
+}
+
+unique lazy rule createEnumLiteral {
+    from
+        literalName : String
+    to  	
+        enumAttribute : python!Attribute (
+            name <- literalName
+        )
+}
+
+lazy rule TransformGame {
+    from
+        g : platformer!Game 
+    to
+        enumScript : python!Script (
+            imports <- Sequence{
+                -- Adding import statements
+                thisModule.createImport('pygame', 'null'),
+                thisModule.createImport('random', 'null'),
+                thisModule.createImport('ABC', 'null'),
+                thisModule.createImport('Enum', 'null')
+            },
+            expressions <- Sequence{
+                -- Initialize Pygame
+                thisModule.createFunctionCall('pygame.init()')
+            },
+            assignment <- Sequence{
+                -- Constants
+                thisModule.createAssignment('SCREEN_WIDTH', thisModule.createConstantReference('800')),
+                thisModule.createAssignment('SCREEN_HEIGHT', thisModule.createConstantReference('600')),
+                thisModule.createAssignment('FPS', thisModule.createConstantReference('60')),
+                
+                -- Level dimensions
+                thisModule.createAssignment('height', thisModule.createConstantReference('600')),
+                thisModule.createAssignment('width', thisModule.createConstantReference('1600')),
+                
+                -- Screen setup
+                thisModule.createAssignment('screen', 
+                    thisModule.createFunctionCall('pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))')
+                ),
+				thisModule.createAssignment('clock', 
+                    thisModule.createFunctionCall('pygame.time.Clock()')
+                )
+            },
+            assignment <- Sequence{
+                thisModule.createAssignment('score', 
+                    thisModule.createClassInstantiation('Score', Sequence{Sequence{g.score.amount.toString()}})
+                ),
+                thisModule.createAssignment('lives', 
+                    thisModule.createClassInstantiation('Lives', Sequence{g.lives.amount.toString()})
+                ),
+                thisModule.createAssignment('friction', 
+				    thisModule.createConstantReference(g.friction.toString())
+				),
+				thisModule.createAssignment('gravity', 
+				    thisModule.createConstantReference(g.gravity.toString())
+				)
+            },
+            class <- Sequence{
+                -- Enums
+                thisModule.createEnum('Direction', thisModule.directionEnum),
+                thisModule.createEnum('Status', thisModule.statusEnum),
+                thisModule.createEnum('ButtonType', thisModule.buttonTypeEnum),
+                thisModule.createEnum('Platform', thisModule.platformTypeEnum),
+                thisModule.createEnum('Item', thisModule.itemTypeEnum),
+                thisModule.createEnum('Enemy', thisModule.enemyTypeEnum)
+            }
+        )
+	do {
+        thisModule.TransformClass(g);
+    }
+}
+
+lazy rule TransformLevel {
+    from
+        l : platformer!Level 
+    to
+        levelScript : python!Script (
+            assignment <- Sequence{
+                -- Assigning width and height as constants or parameters
+                thisModule.createAssignment('width', 
+                    thisModule.createConstantReference(l.width.toString())
+                ),
+                thisModule.createAssignment('height', 
+                    thisModule.createConstantReference(l.height.toString())
+                ),
+                -- Assigning status using the Status enum
+                thisModule.createAssignment('status', 
+                    thisModule.createConstantReference(l.status.name)
+                )
+            },
+            class <- thisModule.createClass(l)
+        )
+}
+
+
+lazy rule TransformPlayer {
+    from
+        p : platformer!Player 
+    to
+        playerScript : python!Script (
+            assignment <- Sequence{
+                -- Assigning Player-specific attributes
+                thisModule.createAssignment('powered_up', 
+                    thisModule.createConstantReference(p.powered_up.toString())
+                ),
+                thisModule.createAssignment('powered_time', 
+                    thisModule.createConstantReference(p.powered_time.toString())
+                ),
+                thisModule.createAssignment('jump_speed', 
+                    thisModule.createConstantReference(p.jump_speed.toString())
+                ),
+                thisModule.createAssignment('on_ground', 
+                    thisModule.createConstantReference(p.on_ground.toString())
+                )
+            },
+			class <- thisModule.createClass(p)
+        )
+}
+
+rule TransformAllClasses {
+    from
+        c : platformer!EObject (
+            thisModule.isFirstInstanceOfClass(c)
+        )
+    do {
+        if c.eClass().name = 'Level' then
+            thisModule.TransformLevel(c)
+        else if c.eClass().name = 'Player' then
+            thisModule.TransformPlayer(c)
+		else if c.eClass().name = 'Game' then
+            thisModule.TransformGame(c)
+        else
+            thisModule.TransformClass(c)
+		endif endif endif;
+    }
+}
