@@ -1,5 +1,7 @@
 # Pygame Generator
 
+Authors: _Lorenzo Steno, Alpay Hasanli_
+
 This project is a Pygame generator based on Model-Driven Engineering (MDE) principles. It leverages Eclipse Acceleo to transform a platformer game model into executable Python code using the Pygame library.
 
 ## Overview
